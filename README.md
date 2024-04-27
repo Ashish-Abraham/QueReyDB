@@ -15,9 +15,10 @@ QueReyDB is a novel solution that revolutionizes the way users interact with dat
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
+
+Are you struggling with SQL queries and syntax? QueReyDB got you covered!
 
 In the era of big data, efficiently querying and analyzing large databases has become crucial for data professionals. QueReyDB simplifies this process by enabling users to interact with databases using natural language queries. Leveraging the power of Mistral LLM, LangChain framework, and Qdrant vector database, QueReyDB translates natural language queries into accurate SQL queries through Retrieval Augmented Generation (RAG) and vector search techniques.
 
@@ -62,7 +63,11 @@ By integrating vector search capabilities, QueReyDB can retrieve relevant query-
 
 - Open the web interface in your preferred browser.
 <p align="center">
-  <img src="images\Untitled.png" width=500>
+  <img src="images\Untitled.png" width=600>
 </p>
+
+## Contributing
+- Create a branch for your changes.
+- Open a pull request.
 
    
