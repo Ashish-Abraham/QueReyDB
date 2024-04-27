@@ -3,7 +3,7 @@
 <h4 align="center" >RAG (Retrieval Augmented Generation) and vector search to translate natural language into SQL queries for PostgreSQL databases.</h4><br>
 
 <p align="center">
-  <img src="images\cover.png" width=400>
+  <img src="images\cover.png" width=500>
 </p>
 
 QueReyDB is a novel solution that revolutionizes the way users interact with databases. By combining the power of natural language processing, large language models, and vector search algorithms, this project empowers users to analyze large databases using intuitive natural language queries.
