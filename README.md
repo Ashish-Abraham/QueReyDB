@@ -1,9 +1,9 @@
-<h1 align="center" style="font-family: 'Dancing Script', cursive; color: #9933FF;">QueReyDB  <img src="images/w1_noback.png"  width=50 height=50/></h1>
+<h1 align="center" style="font-family: 'Dancing Script', cursive; color: #9933FF;">QueReyDB  <img src="images\logo.png"  width=50 height=50/></h1>
 
 <h4 align="center" >RAG (Retrieval Augmented Generation) and vector search to translate natural language into SQL queries for PostgreSQL databases.</h4><br>
 
 <p align="center">
-  <img src="images/w3.png" width=500>
+  <img src="images\cover.png" width=400>
 </p>
 
 QueReyDB is a novel solution that revolutionizes the way users interact with databases. By combining the power of natural language processing, large language models, and vector search algorithms, this project empowers users to analyze large databases using intuitive natural language queries.
@@ -19,7 +19,7 @@ QueReyDB is a novel solution that revolutionizes the way users interact with dat
 
 ## Overview
 
-In the era of big data, efficiently querying and analyzing large databases has become crucial for data professionals. QueReyDB simplifies this process by enabling users to interact with databases using natural language queries. Leveraging the power of Mistral LLM, LangChain framework, and PostgreSQL, QueReyDB translates natural language queries into accurate SQL queries through Retrieval Augmented Generation (RAG) and vector search techniques.
+In the era of big data, efficiently querying and analyzing large databases has become crucial for data professionals. QueReyDB simplifies this process by enabling users to interact with databases using natural language queries. Leveraging the power of Mistral LLM, LangChain framework, and Qdrant vector database, QueReyDB translates natural language queries into accurate SQL queries through Retrieval Augmented Generation (RAG) and vector search techniques.
 
 By integrating vector search capabilities, QueReyDB can retrieve relevant query-SQL pairs from a search history, improving accuracy and efficiency. As more queries are processed, the vector database grows, enhancing overall performance. QueReyDB ensures scalability, low latency, and consistent query execution, empowering users to focus on their analytical problems while it handles the complexities of SQL query generation.
 
@@ -30,6 +30,11 @@ By integrating vector search capabilities, QueReyDB can retrieve relevant query-
 - **Incremental Learning**: As more queries are processed, QueReyDB's vector database grows, increasing the likelihood of finding relevant historical data for future queries and enhancing overall performance.
 - **Scalability and Low Latency**: By leveraging vector search and reducing the load on the LLM, QueReyDB can handle a high volume of queries concurrently with low latency.
 - **Consistency**: QueReyDB ensures consistent query execution by retrieving SQL queries from the search history for similar queries, maintaining consistency in query translation.
+
+## Workflow
+<p align="center">
+  <img src="images\Workflow.png" width=500>
+</p>
 
 ## Installation
 
