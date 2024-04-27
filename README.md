@@ -61,5 +61,8 @@ By integrating vector search capabilities, QueReyDB can retrieve relevant query-
    ```
 
 - Open the web interface in your preferred browser.
-   
+<p align="center">
+  <img src="images\Untitled.png" width=500>
+</p>
+
    
