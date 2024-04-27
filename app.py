@@ -1,7 +1,8 @@
 import streamlit as st
 from langchain_community.utilities import SQLDatabase
 from langchain.chains import create_sql_query_chain
-from llm_loader import load_llm  # Import the LLM loader
+from llm_loader import load_llm  
+from qdrant_util import push_to_qdrant
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient, models
 
@@ -45,7 +46,35 @@ def main():
             # Create the SQL query chain
             db_chain = create_sql_query_chain(llm, db)
 
-            # ... rest of your code ...
+            # Load the sentence transformer model
+            encoder = SentenceTransformer('BAAI/bge-small-en')
+
+            # Create a Qdrant client
+            client = QdrantClient(":memory:")
+
+            # Search the vector database
+            hits = client.search(
+                collection_name="MovieDB",
+                query_vector=encoder.encode(query).tolist(),
+                limit=1,
+            )
+
+            if hits[0].score > 0.90:
+                # Retrieve the result from the search history
+                st.write(hits[0].payload)
+            else:
+                # Get the response from the LLM
+                response = db_chain.invoke({"question": query})
+
+                # Display the response
+                st.write(response)
+
+                # Convert the response to a vector and store in the database
+                vector = encoder.encode(query).tolist()
+                # Push data to Qdrant using the qdrant_util function
+                push_to_qdrant(
+                    client, "MovieDB", vector, query, response
+                )
 
 if __name__ == "__main__":
     main()
