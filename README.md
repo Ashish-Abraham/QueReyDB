@@ -39,9 +39,11 @@ By integrating vector search capabilities, QueReyDB can retrieve relevant query-
 
 ## Installation
 
+----------------
 ### Prerequisite
 - Python3
 - GPU support for Mistral-7B LLM
+-----------------
 
 1. Clone the repository:
 
