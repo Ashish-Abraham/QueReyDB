@@ -6,7 +6,7 @@
   <img src="images\cover.png" width=500>
 </p>
 
-QueReyDB is a novel solution that revolutionizes the way users interact with databases. By combining the power of natural language processing, large language models, and vector search algorithms, this project empowers users to analyze large databases using intuitive natural language queries.
+QueReyDB is a solution that revolutionizes the way users interact with databases. By combining the power of natural language processing, large language models, and vector search algorithms, this project empowers users to analyze large databases using intuitive natural language queries.
 
 ## Table of Contents
 
