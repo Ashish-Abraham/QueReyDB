@@ -71,6 +71,11 @@ By integrating vector search capabilities, QueReyDB can retrieve relevant query-
 <p align="center">
   <img src="images\Untitled.png" width=600>
 </p>
+<p align="center">
+  <img src="images\Untitled-2.png" width=600>
+</p>
+
+Find the medium [article](https://medium.com/@ashishabraham02/exploring-vector-search-for-sql-databases-0f5be67aff57) also. 
 
 ## Contributing
 - Create a branch for your changes.

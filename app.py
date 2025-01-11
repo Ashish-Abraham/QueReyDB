@@ -8,6 +8,8 @@ from langchain_community.vectorstores import Qdrant
 from langchain_core.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_core.example_selectors import SemanticSimilarityExampleSelector
 from qdrant_client import QdrantClient, models
+from dotenv import load_dotenv
+load_dotenv()
 
 client = initialize_qdrant()  
 
@@ -56,8 +58,8 @@ def main():
             st.success("Database connection successful!")
 
             query = st.text_area("Enter your query")
-            llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
-            encoder = OpenAIEmbeddings(model="text-embedding-3-small")
+            llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
+            encoder = OpenAIEmbeddings(model="text-embedding-3-small", api_key=os.getenv("OPENAI_API_KEY"))
 
             examples = [
                 {"input": "List all movies with a rating higher than 8.5.", "query": "SELECT * FROM Movies WHERE Rating > 8.5;"},
