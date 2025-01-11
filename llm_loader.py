@@ -1,5 +1,23 @@
+from transformers import pipeline
 from langchain.llms import HuggingFacePipeline
+import torch
+import os
+from dotenv import load_dotenv
+from huggingface_hub import login
 
+# Load .env file
+load_dotenv()
+
+def authenticate_huggingface():
+    """
+    Authenticates Hugging Face using the token from the .env file.
+    """
+    token = os.getenv("HUGGINGFACE_TOKEN")
+    if not token:
+        raise EnvironmentError("Hugging Face token not found in .env file. Please add HUGGINGFACE_TOKEN.")
+    
+    login(token=token)
+    print("Successfully authenticated Hugging Face.")
 
 def load_llm(model_name="mistralai/Mistral-7B-v0.1", max_new_tokens=100):
     """
@@ -13,14 +31,22 @@ def load_llm(model_name="mistralai/Mistral-7B-v0.1", max_new_tokens=100):
         HuggingFacePipeline: The loaded Hugging Face pipeline object.
     """
 
-    pipe = pipeline(
-        "text-generation",
-        model=model_name,
-        tokenizer=model_name,
-        torch_dtype=torch.bfloat16,
-        device_map="auto",
-        max_new_tokens=max_new_tokens,
-    )
+    try:
+        # Authenticate with Hugging Face before loading the model
+        authenticate_huggingface()
 
-    return HuggingFacePipeline(pipeline=pipe)
+        # Load the pipeline
+        pipe = pipeline(
+            "text-generation",
+            model=model_name,
+            tokenizer=model_name,
+            torch_dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
+            device_map="auto" if torch.cuda.is_available() else None,
+            max_new_tokens=max_new_tokens,
+            model_kwargs={"load_in_8bit": torch.cuda.is_available()}
+        )
 
+        return HuggingFacePipeline(pipeline=pipe)
+
+    except Exception as e:
+        raise RuntimeError(f"Failed to load LLM model '{model_name}': {e}")
